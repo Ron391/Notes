@@ -1,0 +1,132 @@
+﻿<Window x:Class="Notes.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Notes"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="850" AllowsTransparency="True" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Storyboard x:Key="Storyboard1">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="image">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Hidden}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="ellipse">
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.1" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="stackPanel">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="280"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="Storyboard2">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Width)" Storyboard.TargetName="stackPanel">
+                <EasingDoubleKeyFrame KeyTime="0" Value="280"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Height)" Storyboard.TargetName="grid">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="270"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="UIElement.MouseDown" SourceName="image">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="UIElement.MouseDown" SourceName="image1">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard2}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <StackPanel Orientation="Horizontal">
+        <StackPanel x:Name="stackPanel" HorizontalAlignment="Left" Height="500" VerticalAlignment="Top" Width="58">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.008,0.477" StartPoint="0.939,0.477">
+                    <GradientStop Color="#FF0432AE" Offset="1"/>
+                    <GradientStop Color="#FF0648F9"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+            <Grid Height="61">
+                <Image x:Name="image" HorizontalAlignment="Left" Height="30" Margin="16,14.5,0,0" VerticalAlignment="Top" Width="30" Source="icons8-menu-24.png"/>
+                <Ellipse x:Name="ellipse" HorizontalAlignment="Left" Height="51" Margin="6,4.5,0,0" VerticalAlignment="Top" Width="51" Visibility="Hidden">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="profile-1496175100457-27a8e68786eb.jpg"/>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock HorizontalAlignment="Left" Height="26.5" Margin="72,17.5,0,0" TextWrapping="Wrap" Text="Isabella Ray" VerticalAlignment="Top" Width="152.5" Foreground="White" FontSize="16"/>
+            </Grid>
+            <Grid x:Name="grid" Height="44.5" Margin="0,20,0,0">
+                <Image HorizontalAlignment="Left" Height="24" Margin="19,8.5,0,0" VerticalAlignment="Top" Width="24" Source="icons8-categorize-24.png"/>
+                <Image HorizontalAlignment="Left" Height="24" Margin="19,53.5,0,0" VerticalAlignment="Top" Width="24" Source="icons8-department-shop-24.png"/>
+                <Image HorizontalAlignment="Left" Height="24" Margin="19,89.5,0,0" VerticalAlignment="Top" Width="24" Source="icons8-design-24.png"/>
+                <Image HorizontalAlignment="Left" Height="24" Margin="19,125.5,0,0" VerticalAlignment="Top" Width="24" Source="icons8-group-objects-24.png"/>
+                <Image HorizontalAlignment="Left" Height="24" Margin="19,161.5,0,0" VerticalAlignment="Top" Width="24" Source="icons8-spiral-bound-booklet-24.png"/>
+                <Image HorizontalAlignment="Left" Height="24" Margin="19,197.5,0,0" VerticalAlignment="Top" Width="24" Source="icons8-person-24.png"/>
+                <Image HorizontalAlignment="Left" Height="24" Margin="19,233.5,0,0" VerticalAlignment="Top" Width="24" Source="icons8-code-24.png"/>
+                <TextBlock HorizontalAlignment="Left" Height="22.5" Margin="71,10,0,0" TextWrapping="Wrap" Text="C A T E G O R I E S" VerticalAlignment="Top" Width="152.5" Foreground="White" FontSize="14" FontWeight="Bold"/>
+                <TextBlock HorizontalAlignment="Left" Height="22.5" Margin="71,53.5,0,0" TextWrapping="Wrap" Text="Business" VerticalAlignment="Top" Width="152.5" Foreground="White" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Height="22.5" Margin="71,89.5,0,0" TextWrapping="Wrap" Text="Develop" VerticalAlignment="Top" Width="152.5" Foreground="White" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Height="22.5" Margin="71,125.5,0,0" TextWrapping="Wrap" Text="General" VerticalAlignment="Top" Width="152.5" Foreground="White" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Height="22.5" Margin="71,161.5,0,0" TextWrapping="Wrap" Text="Journal" VerticalAlignment="Top" Width="152.5" Foreground="White" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Height="22.5" Margin="71,197.5,0,0" TextWrapping="Wrap" Text="Personal" VerticalAlignment="Top" Width="152.5" Foreground="White" FontSize="14"/>
+                <TextBlock HorizontalAlignment="Left" Height="22.5" Margin="71,233.5,0,0" TextWrapping="Wrap" Text="Programming" VerticalAlignment="Top" Width="152.5" Foreground="White" FontSize="14"/>
+                <Image x:Name="image1" HorizontalAlignment="Left" Height="24" Margin="228.5,8.5,0,0" VerticalAlignment="Top" Width="24" Source="icons8-plus-48.png"/>
+            </Grid>
+            <Grid Height="44.5" Margin="0,10,0,0">
+                <Image HorizontalAlignment="Left" Height="24" Margin="19,8.5,0,0" VerticalAlignment="Top" Width="24" Source="icons8-price-tag-24.png"/>
+                <TextBlock HorizontalAlignment="Left" Height="22.5" Margin="71,10,0,0" TextWrapping="Wrap" Text="T A G S" VerticalAlignment="Top" Width="152.5" Foreground="White" FontSize="14" FontWeight="Bold"/>
+                <Image HorizontalAlignment="Left" Height="24" Margin="228.5,8.5,0,0" VerticalAlignment="Top" Width="24" Source="icons8-plus-48.png"/>
+            </Grid>
+            <Grid Height="44.5" Margin="0">
+                <Image HorizontalAlignment="Left" Height="24" Margin="19,8.5,0,0" VerticalAlignment="Top" Width="24" Source="icons8-color-mode-24.png"/>
+                <TextBlock HorizontalAlignment="Left" Height="22.5" Margin="71,10,0,0" TextWrapping="Wrap" Text="C O L O R S" VerticalAlignment="Top" Width="152.5" Foreground="White" FontSize="14" FontWeight="Bold"/>
+                <Image HorizontalAlignment="Left" Height="24" Margin="228.5,8.5,0,0" VerticalAlignment="Top" Width="24" Source="icons8-plus-48.png"/>
+            </Grid>
+            <Grid Height="44.5" Margin="0">
+                <Image HorizontalAlignment="Left" Height="24" Margin="19,8.5,0,0" VerticalAlignment="Top" Width="24" Source="icons8-trash-can-50.png"/>
+                <TextBlock HorizontalAlignment="Left" Height="22.5" Margin="71,10,0,0" TextWrapping="Wrap" Text="T R A S H" VerticalAlignment="Top" Width="152.5" Foreground="White" FontSize="14" FontWeight="Bold"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Background="#FFE6E6E6">
+            <Grid Height="499" Width="250">
+                <Image HorizontalAlignment="Left" Height="24" Margin="208.5,16,0,0" VerticalAlignment="Top" Width="24" Source="icons8-refresh-48.png"/>
+                <TextBlock HorizontalAlignment="Left" Height="26.5" Margin="14.5,17.5,0,0" TextWrapping="Wrap" Text="Tab Name" VerticalAlignment="Top" Width="152.5" Foreground="Black" FontSize="16" FontWeight="Bold"/>
+                <TextBlock HorizontalAlignment="Left" Height="20.5" Margin="17.5,68.5,0,0" TextWrapping="Wrap" Text="42 Notes" VerticalAlignment="Top" Width="115" Foreground="#FF4B4949" FontWeight="Bold"/>
+                <Image HorizontalAlignment="Left" Height="20" Margin="157.5,64,0,0" VerticalAlignment="Top" Width="20" Source="icons8-filter-52.png"/>
+                <Image HorizontalAlignment="Left" Height="20" Margin="186.5,64,0,0" VerticalAlignment="Top" Width="20" Source="icons8-price-tag-48.png"/>
+                <Image HorizontalAlignment="Left" Height="20" Margin="214.5,63.5,0,0" VerticalAlignment="Top" Width="20" Source="icons8-menu-vertical-48 (1).png"/>
+                <Rectangle HorizontalAlignment="Left" Height="35.5" Margin="10,89,0,0" VerticalAlignment="Top" Width="230" Fill="White" RadiusY="5" RadiusX="5"/>
+                <TextBox TextWrapping="Wrap" Text="Search" Margin="14.5,91,45.5,376.5" VerticalContentAlignment="Center" FontSize="14" Padding="10,0,0,0" Foreground="#FF4B4949" Background="{x:Null}" BorderBrush="{x:Null}" SelectionBrush="{x:Null}"/>
+                <Image HorizontalAlignment="Left" Height="24" Margin="209.5,95.5,0,0" VerticalAlignment="Top" Width="24" Source="icons8-search-30.png"/>
+                <Grid HorizontalAlignment="Left" Height="92.5" Margin="10,192,0,0" VerticalAlignment="Top" Width="230" Background="White">
+                    <Ellipse Fill="Red" HorizontalAlignment="Left" Height="15" Margin="5.5,5.5,0,0" VerticalAlignment="Top" Width="15"/>
+                    <TextBlock HorizontalAlignment="Left" Height="19" Margin="25.5,5,0,0" TextWrapping="Wrap" Text="General" VerticalAlignment="Top" Width="92.5" Foreground="#FF424040"/>
+                    <TextBlock HorizontalAlignment="Left" Height="19" Margin="127.5,5,0,0" TextWrapping="Wrap" Text="01/01/1000" VerticalAlignment="Top" Width="92.5" TextAlignment="Right" Foreground="#FF424040"/>
+                    <TextBlock HorizontalAlignment="Left" Height="18.5" Margin="10,25.5,0,0" TextWrapping="Wrap" Text="Note Title Goes Here" VerticalAlignment="Top" Width="210" FontWeight="Bold"/>
+                    <TextBlock HorizontalAlignment="Left" Height="33.5" Margin="10,49,0,0" TextWrapping="Wrap" Text="Some important notes to be added to the box from the database" VerticalAlignment="Top" Width="210"/>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Height="92.5" Margin="10,289,0,0" VerticalAlignment="Top" Width="230" Background="White">
+                    <Ellipse Fill="Yellow" HorizontalAlignment="Left" Height="15" Margin="5.5,5.5,0,0" VerticalAlignment="Top" Width="15"/>
+                    <TextBlock HorizontalAlignment="Left" Height="19" Margin="25.5,5,0,0" TextWrapping="Wrap" Text="General" VerticalAlignment="Top" Width="92.5" Foreground="#FF424040"/>
+                    <TextBlock HorizontalAlignment="Left" Height="19" Margin="127.5,5,0,0" TextWrapping="Wrap" Text="01/01/1000" VerticalAlignment="Top" Width="92.5" TextAlignment="Right" Foreground="#FF424040"/>
+                    <TextBlock HorizontalAlignment="Left" Height="18.5" Margin="10,25.5,0,0" TextWrapping="Wrap" Text="Note Title Goes Here" VerticalAlignment="Top" Width="210" FontWeight="Bold"/>
+                    <TextBlock HorizontalAlignment="Left" Height="33.5" Margin="10,49,0,0" TextWrapping="Wrap" Text="Some important notes to be added to the box from the database" VerticalAlignment="Top" Width="210"/>
+                </Grid>
+                <Grid HorizontalAlignment="Left" Height="92.5" Margin="10,386,0,0" VerticalAlignment="Top" Width="230" Background="White">
+                    <Ellipse Fill="#FF68FF00" HorizontalAlignment="Left" Height="15" Margin="5.5,5.5,0,0" VerticalAlignment="Top" Width="15"/>
+                    <TextBlock HorizontalAlignment="Left" Height="19" Margin="25.5,5,0,0" TextWrapping="Wrap" Text="General" VerticalAlignment="Top" Width="92.5" Foreground="#FF424040"/>
+                    <TextBlock HorizontalAlignment="Left" Height="19" Margin="127.5,5,0,0" TextWrapping="Wrap" Text="01/01/1000" VerticalAlignment="Top" Width="92.5" TextAlignment="Right" Foreground="#FF424040"/>
+                    <TextBlock HorizontalAlignment="Left" Height="18.5" Margin="10,25.5,0,0" TextWrapping="Wrap" Text="Note Title Goes Here" VerticalAlignment="Top" Width="210" FontWeight="Bold"/>
+                    <TextBlock HorizontalAlignment="Left" Height="33.5" Margin="10,49,0,0" TextWrapping="Wrap" Text="Some important notes to be added to the box from the database" VerticalAlignment="Top" Width="210"/>
+                </Grid>
+                <Button Content="Add Notes" HorizontalAlignment="Left" Height="37" Margin="10,133,0,0" VerticalAlignment="Top" Width="230" Background="#FF0541E2" Foreground="White"/>
+            </Grid>
+        </StackPanel>
+        <StackPanel Background="White">
+            <Grid HorizontalAlignment="Left" Height="497.5" VerticalAlignment="Top" Width="332" Background="White">
+                <Ellipse Fill="Red" HorizontalAlignment="Left" Height="15" Margin="5.5,5.5,0,0" VerticalAlignment="Top" Width="15"/>
+                <TextBlock HorizontalAlignment="Left" Height="19" Margin="25.5,5,0,0" TextWrapping="Wrap" Text="General" VerticalAlignment="Top" Width="92.5" Foreground="#FF424040"/>
+                <TextBlock HorizontalAlignment="Left" Height="19" Margin="229.5,5,0,0" TextWrapping="Wrap" Text="01/01/1000" VerticalAlignment="Top" Width="92.5" TextAlignment="Right" Foreground="#FF424040"/>
+                <TextBlock HorizontalAlignment="Left" Height="18.5" Margin="10,25.5,0,0" TextWrapping="Wrap" Text="Note Title Goes Here" VerticalAlignment="Top" Width="312" FontWeight="Bold"/>
+                <TextBlock HorizontalAlignment="Left" Height="438.5" Margin="10,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="312"><Run Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu nisl nunc mi ipsum faucibus vitae aliquet. Non arcu risus quis varius quam quisque id diam. Gravida quis blandit turpis cursus in. Quis ipsum suspendisse ultrices gravida dictum fusce ut placerat. In hac habitasse platea dictumst quisque sagittis. Consequat ac felis donec et odio. Facilisis magna etiam tempor orci. Egestas pretium aenean pharetra magna ac. Quam adipiscing vitae proin sagittis nisl. Fusce ut placerat orci nulla pellentesque dignissim. Imperdiet massa tincidunt nunc pulvinar sapien et ligula. Varius morbi enim nunc faucibus a pellentesque. Malesuada fames ac turpis egestas integer. Nibh nisl condimentum id venenatis. Ut ornare lectus sit amet est placerat in. Leo a diam sollicitudin tempor. Pulvinar sapien"/><Run Text=" Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu nisl nunc mi ipsum faucibus vitae aliquet. Non arcu risus quis varius quam quisque id diam. Gravida quis blandit turpis cursus in. Quis ipsum suspendisse ultrices gravida dictum fusce ut placerat. In hac habitasse platea dictumst quisque sagittis. Consequat ac felis donec et odio. Facilisis magna etiam tempor orci. Egestas pretium aenean pharetra magna ac. Quam adipiscing vitae proin sagittis nisl. Fusce ut placerat orci nulla pellentesque dignissim. Imperdiet massa tincidunt nunc "/></TextBlock>
+            </Grid>
+        </StackPanel>
+    </StackPanel>
+</Window>
